@@ -41,8 +41,8 @@ if __name__ == "__main__":
         #pprint.pprint( details )
         d = pq(filename=intvw)
         scrpt = d('#flash_container script').html()
-        print scrpt
-        print
+        #print scrpt
+        #print
         p = re.compile('\\"url\\":\\"http.+\\"')
         print p.findall(scrpt)
 
