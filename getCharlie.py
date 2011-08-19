@@ -40,11 +40,12 @@ def fetchAndConvert(url):
     mp3name = flashname.replace(".flv",".mp3")
     flashname = 'media/flash/'+flashname
     mp3name = 'media/mp3/'+mp3name
-    # add --quiet
+    # add --quiet 
     COMMANDFORWGET="wget \"%s\" -O \"%s\"  "
     command = COMMANDFORWGET % (url,flashname)
     os.system(command)
-    os.system("ffmpeg -i \"%s\" -acodec libmp3lame -ab 128k \"%s\"" % (flashname,mp3name))
+    # make quiet (-v 0), -y is for overwrite
+    os.system("ffmpeg -y -v 1 -i \"%s\" -acodec libmp3lame -ab 128k \"%s\"" % (flashname,mp3name))
   
 
 if __name__ == "__main__":
